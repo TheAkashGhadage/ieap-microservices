@@ -1,0 +1,55 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        # Employee Service Routes
+        - id: employee-service
+          uri: http://localhost:8080
+          predicates:
+            - Path=/api/employees/**, /api/auth/**
+          filters:
+            - AddResponseHeader=Access-Control-Allow-Origin, *
+            - AddResponseHeader=Access-Control-Allow-Methods, GET, POST, PUT, DELETE, OPTIONS
+
+        # Finance Service Routes
+        - id: finance-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/expenses/**
+
+        # Sales Service Routes
+        - id: sales-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/sales/**, /api/orders/**
+
+        # Document Service Routes
+        - id: document-service
+          uri: http://localhost:5000
+          predicates:
+            - Path=/api/documents/**, /api/upload/**, /api/login/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: gateway
+
+# Optional: Enable detailed gateway logging for debugging
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
