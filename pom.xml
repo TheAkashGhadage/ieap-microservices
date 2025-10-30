@@ -12,7 +12,10 @@
     <modules>
         <module>employee-service</module>
         <module>finance-service</module>
+<<<<<<< HEAD
         <module>sales-service</module>
+=======
+>>>>>>> dca4fec98ecd6a7728b6fbd6f06835e0fa1ac89b
     </modules>
 
     <name>IEAP Microservices</name>
