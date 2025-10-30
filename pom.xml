@@ -1,22 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.priacc.ieap</groupId>
     <artifactId>ieap-microservices</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
+    <name>IEAP Microservices</name>
+    <description>Parent project for all IEAP microservices</description>
+
     <modules>
+        <module>api-gateway</module>
         <module>employee-service</module>
         <module>finance-service</module>
-<<<<<<< HEAD
         <module>sales-service</module>
-=======
->>>>>>> dca4fec98ecd6a7728b6fbd6f06835e0fa1ac89b
+        <module>eureka-server</module>
     </modules>
-
-    <name>IEAP Microservices</name>
 </project>
